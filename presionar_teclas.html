@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Colores por Teclas</title>
+    <link rel="stylesheet" href="./assets/css/presionar_teclas.css" />
+  </head>
+  <body>
+    <h1>Presionar A, S, D, Q, W o E</h1>
+    <div id="key"></div>
+    <div id="container"></div>
+
+    <script>
+      let currentColor = "";
+
+      document.addEventListener("keydown", function (event) {
+        const keyDiv = document.getElementById("key");
+        const container = document.getElementById("container");
+
+        switch (event.key.toLowerCase()) {
+          case "a":
+            currentColor = "pink";
+            keyDiv.style.backgroundColor = currentColor;
+            break;
+          case "s":
+            currentColor = "orange";
+            keyDiv.style.backgroundColor = currentColor;
+            break;
+          case "d":
+            currentColor = "skyblue";
+            keyDiv.style.backgroundColor = currentColor;
+            break;
+          case "q":
+            createColorDiv("purple");
+            break;
+          case "w":
+            createColorDiv("gray");
+            break;
+          case "e":
+            createColorDiv("brown");
+            break;
+        }
+
+        function createColorDiv(color) {
+          const newDiv = document.createElement("div");
+          newDiv.classList.add("color-box");
+          newDiv.style.backgroundColor = color;
+          container.appendChild(newDiv);
+        }
+      });
+    </script>
+  </body>
+</html>
